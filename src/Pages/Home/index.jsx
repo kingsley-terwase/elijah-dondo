@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { HeroSection } from '../../Components/HeroSections';
 import { AboutSection } from '../../Components/AboutSection';
@@ -8,10 +8,29 @@ import { ContactSection } from '../../Components/ContactSection';
 import { Footer, Header } from '../../Components';
 import { Box, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import PortfolioSection from '../../Components/PortfolioSection';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function HomePage() {
     const [darkMode, setDarkMode] = useState(true);
+
+    // Initialize AOS
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // Animation duration in milliseconds
+            once: false, // Whether animation should happen only once
+            mirror: true, // Whether elements should animate out while scrolling past them
+            offset: 100, // Offset (in px) from the original trigger point
+            easing: 'ease-in-out', // Easing function
+            delay: 100, // Delay in milliseconds
+        });
+
+        AOS.refresh();
+    }, []);
+
+    useEffect(() => {
+        AOS.refresh();
+    }, [darkMode]);
 
     const theme = createTheme({
         palette: {
@@ -48,12 +67,31 @@ export default function HomePage() {
                     setDarkMode={setDarkMode}
                     scrollToSection={scrollToSection}
                 />
-                <HeroSection darkMode={darkMode} theme={theme} />
-                <AboutSection darkMode={darkMode} theme={theme} />
-                <SkillsSection darkMode={darkMode} theme={theme} />
-                <ServicesSection darkMode={darkMode} theme={theme} />
-                <PortfolioSection darkMode={darkMode} theme={theme} />
-                <ContactSection darkMode={darkMode} theme={theme} />
+
+                <div data-aos="fade-up">
+                    <HeroSection darkMode={darkMode} theme={theme} />
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <AboutSection darkMode={darkMode} theme={theme} />
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="150">
+                    <SkillsSection darkMode={darkMode} theme={theme} />
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <ServicesSection darkMode={darkMode} theme={theme} />
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="250">
+                    <PortfolioSection darkMode={darkMode} theme={theme} />
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <ContactSection darkMode={darkMode} theme={theme} />
+                </div>
+
                 <Footer
                     darkMode={darkMode}
                     theme={theme}
@@ -61,5 +99,5 @@ export default function HomePage() {
                 />
             </Box>
         </ThemeProvider>
-  );
-};
+    );
+}
