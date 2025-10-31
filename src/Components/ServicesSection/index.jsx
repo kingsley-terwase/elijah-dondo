@@ -12,6 +12,7 @@ import {
     Web,
     Storage,
     Cloud,
+    AccountBalanceWallet,
 } from '@mui/icons-material';
 import { FONT_FAMILY } from '../../Config/font';
 
@@ -40,6 +41,12 @@ export const ServicesSection = ({ darkMode, theme }) => {
             title: 'Database Design',
             description:
                 'Efficient database architecture and optimization for SQL and NoSQL databases.',
+        },
+        {
+            icon: <AccountBalanceWallet sx={{ fontSize: 60 }} />,
+            title: 'Block Chain Technologies',
+            description:
+                'Development of decentralized applications (dApps) and smart contracts on Ethereum and Kadena blockchains.',
         },
     ];
 

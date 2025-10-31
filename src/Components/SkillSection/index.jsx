@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import {
-  Typography,
-  Container,
-  Box,
-  Grid,
-  LinearProgress,
-  Paper,
+    Typography,
+    Container,
+    Box,
+    Grid,
+    LinearProgress,
+    Paper,
 } from '@mui/material';
 import {
-  Code,
-  Web,
-  Storage,
-  Cloud,
+    Code,
+    Web,
+    Storage,
+    Cloud,
+    AccountBalanceWallet,
 } from '@mui/icons-material';
 import { FONT_FAMILY } from '../../Config/font';
 
@@ -23,8 +24,8 @@ export const SkillsSection = ({ darkMode, theme }) => {
         { name: 'Python/Django', level: 85, icon: <Code /> },
         { name: 'PostgreSQL/MongoDB', level: 92, icon: <Storage /> },
         { name: 'AWS/Docker', level: 87, icon: <Cloud /> },
-        { name: 'GraphQL/REST APIs', level: 93, icon: <Web /> },
-        { name: 'UI/UX Design', level: 80, icon: <Web /> },
+        { name: 'Ethereum/EVM', level: 95, icon: <AccountBalanceWallet />, },
+        { name: 'Kadena Blockchain', level: 90, icon: <AccountBalanceWallet />,  },
     ];
 
     return (
@@ -54,13 +55,13 @@ export const SkillsSection = ({ darkMode, theme }) => {
                 </Typography>
                 <Typography
                     variant="h6"
-                    sx={{ mb: 8,fontFamily: FONT_FAMILY.secondary, textAlign: 'center', color: 'text.secondary' }}
+                    sx={{ mb: 8, fontFamily: FONT_FAMILY.secondary, textAlign: 'center', color: 'text.secondary' }}
                 >
                     Technologies I work with
                 </Typography>
                 <Grid container spacing={4}>
                     {skills.map((skill, index) => (
-                        <Grid size={{xs:12, md:6}} key={index}>
+                        <Grid size={{ xs: 12, md: 6 }} key={index}>
                             <Paper
                                 elevation={5}
                                 sx={{
